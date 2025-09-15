@@ -30,17 +30,13 @@ public class SynCacheCache implements Cache {
 
     @Override
     public ValueWrapper get(Object key) {
-        try {
-            Object value = controller.get(name, key.toString(), Object.class);
-            return value != null ? new SimpleValueWrapper(value) : null;
-        } catch (Exception e) {
-            throw new RuntimeException("Error getting value from SynCache", e);
-        }
+        Object value = controller.get(name, key.toString());
+        return new SimpleValueWrapper(value);
     }
 
     @Override
     public <T> T get(Object key, Class<T> type) {
-        return controller.get(name, key.toString(), type);
+        return (T) controller.get(name, key.toString());
     }
 
     @Override
@@ -62,7 +58,7 @@ public class SynCacheCache implements Cache {
 
     @Override
     public void put(Object key, Object value) {
-        var entry = new CacheEntry<Object>(name, key.toString(), value, null);
+        var entry = new CacheEntry(name, key.toString(), value, null);
         controller.set(entry);
 
     }

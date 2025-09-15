@@ -15,13 +15,11 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnProperty(prefix = "spring.cache", name = "type", havingValue = "syncache")
 public class SynCacheAutoConfiguration {
 
-    @Autowired
-    private SynCacheProperties synCacheProperties;
 
     @Bean
     @ConditionalOnMissingBean
     public Controller synCacheController(SynCacheProperties props) {
-        return new Controller(synCacheProperties.getRabbitMQURI(), synCacheProperties.getMaxNoOfEntries(), synCacheProperties.isAsync());
+        return new Controller(props.getRabbitMQURI(), props.getMaxNoOfEntries(), props.isAsync());
     }
 
     @Bean

@@ -63,6 +63,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.5.5</version>
+                <configuration>
+                    <skip>true</skip> <!-- skip creating executable JAR -->
+                </configuration>
             </plugin>
         </plugins>
     </build>

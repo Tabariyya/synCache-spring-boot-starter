@@ -1,2 +1,1 @@
-com.io.github.waleedsda.spring.autoconfigure.SynCacheAutoConfiguration
-
+io.github.waleedsda.syncachespringbootstarter.spring.autoconfigure.SynCacheAutoConfiguration
