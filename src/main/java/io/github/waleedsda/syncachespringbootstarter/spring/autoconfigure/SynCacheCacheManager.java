@@ -1,6 +1,7 @@
 package io.github.waleedsda.syncachespringbootstarter.spring.autoconfigure;
 
 import io.github.waleedsda.synCache.Controller;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 
@@ -11,6 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * A simple Spring CacheManager for SynCache.
  */
+@ConditionalOnProperty(prefix = "spring.cache", name = "type", havingValue = "syncache")
 public class SynCacheCacheManager implements CacheManager {
 
     private final Controller controller;

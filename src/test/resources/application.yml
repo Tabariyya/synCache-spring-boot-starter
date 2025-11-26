@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: tests
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  data:
+    syncache:
+      brokerUrl: "ws://91.93.135.176:25672/"
+      brokerAuthToken: 
+      maxNoOfEntries: 500
+
+  cache:
+    type: syncache

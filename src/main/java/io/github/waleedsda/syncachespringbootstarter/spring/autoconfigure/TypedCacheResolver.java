@@ -1,5 +1,6 @@
 package io.github.waleedsda.syncachespringbootstarter.spring.autoconfigure;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.interceptor.CacheOperationInvocationContext;
@@ -13,6 +14,7 @@ import java.util.concurrent.Callable;
 
 
 @Component
+@ConditionalOnProperty(prefix = "spring.cache", name = "type", havingValue = "syncache")
 public class TypedCacheResolver implements CacheResolver {
 
     private final CacheManager cacheManager;
