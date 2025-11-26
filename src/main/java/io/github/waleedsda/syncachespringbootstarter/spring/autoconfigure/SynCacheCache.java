@@ -1,9 +1,7 @@
 package io.github.waleedsda.syncachespringbootstarter.spring.autoconfigure;
 
-import com.synCache.CacheEntry;
-import com.synCache.Controller;
+import io.github.waleedsda.synCache.Controller;
 import org.springframework.cache.Cache;
-import org.springframework.cache.support.SimpleValueWrapper;
 
 import java.util.concurrent.Callable;
 
@@ -30,36 +28,29 @@ public class SynCacheCache implements Cache {
 
     @Override
     public ValueWrapper get(Object key) {
-        Object value = controller.get(name, key.toString());
-        return new SimpleValueWrapper(value);
+        throw new UnsupportedOperationException(
+                "SynCache requires type information. Please use get(Object key, Class<T> type) instead. " +
+                        "Key: " + key + ", Cache: " + name
+        );
     }
 
     @Override
     public <T> T get(Object key, Class<T> type) {
-        return (T) controller.get(name, key.toString());
+        return (((controller.get(name, key.toString(), type))));
     }
 
     @Override
     public <T> T get(Object key, Callable<T> valueLoader) {
-
-        T value = get(key, (Class<T>) Object.class); // try to get from cache first
-        if (value != null) return value;
-
-        try {
-            // compute the value using valueLoader
-            T computedValue = valueLoader.call();
-            put(key, computedValue); // store it in cache
-            return computedValue;
-        } catch (Exception e) {
-            throw new RuntimeException("Error computing cache value for key: " + key, e);
-        }
+        throw new UnsupportedOperationException(
+                "SynCache requires type information. Please use get(Object key, Class<T> type) instead. " +
+                        "Key: " + key + ", Cache: " + name
+        );
     }
 
 
     @Override
     public void put(Object key, Object value) {
-        var entry = new CacheEntry(name, key.toString(), value, null);
-        controller.set(entry);
+        controller.set(name, key.toString(), value);
 
     }
 
@@ -74,5 +65,6 @@ public class SynCacheCache implements Cache {
     public void clear() {
 
     }
+
 
 }

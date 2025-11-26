@@ -9,21 +9,14 @@ import org.springframework.validation.annotation.Validated;
 public class SynCacheProperties {
 
     @NotNull
-    private String rabbitMQURI;
+    private String brokerUrl;
+
+    @NotNull
+    private String brokerAuthToken;
 
     @NotNull
     private Integer maxNoOfEntries;
 
-    @NotNull
-    private boolean async;
-
-    public boolean isAsync() {
-        return async;
-    }
-
-    public void setAsync(boolean async) {
-        this.async = async;
-    }
 
     public Integer getMaxNoOfEntries() {
         return maxNoOfEntries;
@@ -33,11 +26,19 @@ public class SynCacheProperties {
         this.maxNoOfEntries = maxNoOfEntries;
     }
 
-    public String getRabbitMQURI() {
-        return rabbitMQURI;
+    public String getBrokerUrl() {
+        return brokerUrl;
     }
 
-    public void setRabbitMQURI(String rabbitMQURI) {
-        this.rabbitMQURI = rabbitMQURI;
+    public void setBrokerUrl(String brokerUrl) {
+        this.brokerUrl = brokerUrl;
+    }
+
+    public String getBrokerAuthToken() {
+        return brokerAuthToken;
+    }
+
+    public void setBrokerAuthToken(String brokerAuthToken) {
+        this.brokerAuthToken = brokerAuthToken;
     }
 }

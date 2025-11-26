@@ -1,6 +1,6 @@
 package io.github.waleedsda.syncachespringbootstarter.spring.autoconfigure;
 
-import com.synCache.Controller;
+import io.github.waleedsda.synCache.Controller;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 
@@ -22,7 +22,6 @@ public class SynCacheCacheManager implements CacheManager {
 
     @Override
     public Cache getCache(String name) {
-        // create cache lazily
         return caches.computeIfAbsent(name, n -> new SynCacheCache(n, controller));
     }
 

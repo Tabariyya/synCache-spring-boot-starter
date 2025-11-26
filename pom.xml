@@ -6,11 +6,11 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.5.5</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <groupId>io.github.waleedsda</groupId>
     <artifactId>syncache-spring-boot-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.2</version>
     <name>syncache-spring-boot-starter</name>
     <description>syncache-spring-boot-starter</description>
 
@@ -28,9 +28,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.synCache</groupId>
+            <groupId>io.github.waleedsda</groupId>
             <artifactId>synCache-java</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.2</version>
         </dependency>
 
 
@@ -43,14 +43,12 @@
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
 
-        <!-- Optional: configuration metadata generation -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!-- Optional dev/test dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -65,7 +63,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>3.5.5</version>
                 <configuration>
-                    <skip>true</skip> <!-- skip creating executable JAR -->
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>
