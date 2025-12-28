@@ -1,4 +1,4 @@
-package io.github.waleedsda.syncachespringbootstarter.spring.autoconfigure;
+package com.tabariyya.syncachespringbootstarter.spring.autoconfigure;
 
 
 import com.tabariyya.synCache.Cache;

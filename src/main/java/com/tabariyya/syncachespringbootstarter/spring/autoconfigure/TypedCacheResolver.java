@@ -1,4 +1,4 @@
-package io.github.waleedsda.syncachespringbootstarter.spring.autoconfigure;
+package com.tabariyya.syncachespringbootstarter.spring.autoconfigure;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cache.Cache;

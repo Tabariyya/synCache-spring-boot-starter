@@ -18,7 +18,7 @@ spring:
   data:
     syncache:
       brokerUrl: "wss://broker.syncache.tabariyya.com/"
-      brokerAuthToken: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjI2MjgwMjc2MDUsInN1YiI6Imdvb2dsZSJ9.XgGmtV7ffxFI_a_g6U7lT_6mn2hc7RvJhO3lukUgMhRflgA5UwwHPt-5c5-uF_wsyA3HPmwQg_cjvI_JrG122OHqbC7Y-16059W-r4W_QALEgHHZKcijf_5g1CsG4DjGfHYJI4JmwrogQ0_yj4UUCD6OMY5v5g0QH4FCsxWcaI4"
+      brokerAuthToken: ${BROKER_TOKEN}
       maxNoOfEntries: 500
 
   cache:

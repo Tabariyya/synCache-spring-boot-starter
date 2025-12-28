@@ -10,12 +10,12 @@
         <relativePath/>
     </parent>
 
-    <groupId>io.github.waleedsda</groupId>
+    <groupId>com.tabariyya</groupId>
     <artifactId>syncache-spring-boot-starter</artifactId>
     <version>1.0.4</version>
     <name>syncache-spring-boot-starter</name>
     <description>Syncache Spring Boot Starter</description>
-    <url>https://github.com/synCache-org/synCache-spring-boot-starter.git</url>
+    <url>https://github.com/tabariyya/synCache-spring-boot-starter.git</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -38,14 +38,14 @@
         <developer>
             <id>WaleedSDA</id>
             <name>Waleed Shanaa</name>
-            <email>waleed.shanaa@outlook.com</email>
+            <email>waleed.shanaa@tabariyya.com</email>
         </developer>
     </developers>
 
     <scm>
-        <url>https://github.com/synCache-org/synCache-spring-boot-starter</url>
-        <connection>scm:git:git://github.com/synCache-org/synCache-spring-boot-starter.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:synCache-org/synCache-spring-boot-starter.git
+        <url>https://github.com/tabariyya/synCache-spring-boot-starter</url>
+        <connection>scm:git:git://github.com/tabariyya/synCache-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:tabariyya/synCache-spring-boot-starter.git
         </developerConnection>
     </scm>
 
