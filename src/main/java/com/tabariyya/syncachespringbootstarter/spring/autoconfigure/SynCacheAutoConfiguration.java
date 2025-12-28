@@ -1,7 +1,7 @@
-package io.github.waleedsda.syncachespringbootstarter.spring.autoconfigure;
+package com.tabariyya.syncachespringbootstarter.spring.autoconfigure;
 
 
-import io.github.waleedsda.synCache.Controller;
+import com.tabariyya.synCache.Cache;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -25,8 +25,8 @@ public class SynCacheAutoConfiguration implements CachingConfigurer {
     @Bean
     @ConditionalOnMissingBean
     public CacheManager cacheManager() {
-        Controller controller = new Controller(props.getBrokerUrl(), props.getBrokerAuthToken(), props.getMaxNoOfEntries());
-        return new SynCacheCacheManager(controller);
+        Cache cache = new Cache(props.getBrokerUrl(), props.getBrokerAuthToken(), props.getMaxNoOfEntries());
+        return new SynCacheCacheManager(cache);
     }
 
     @Bean

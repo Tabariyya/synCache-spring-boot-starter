@@ -2,25 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.5.5</version>
         <relativePath/>
     </parent>
-    <groupId>io.github.waleedsda</groupId>
+
+    <groupId>com.tabariyya</groupId>
     <artifactId>syncache-spring-boot-starter</artifactId>
-    <version>1.0.2</version>
+    <version>0.0.1</version>
     <name>syncache-spring-boot-starter</name>
-    <description>syncache-spring-boot-starter</description>
-    <url>https://github.com/synCache-org/synCache-spring-boot-starter.git</url>
+    <description>Syncache Spring Boot Starter</description>
+    <url>https://github.com/tabariyya/synCache-spring-boot-starter.git</url>
 
     <properties>
-        <maven.compiler.source>24</maven.compiler.source>
-        <maven.compiler.target>24</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>24</maven.compiler.release>
-        <java.version>24</java.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.release>8</maven.compiler.release>
+        <java.version>8</java.version>
     </properties>
 
 
@@ -36,14 +38,15 @@
         <developer>
             <id>WaleedSDA</id>
             <name>Waleed Shanaa</name>
-            <email>waleed.shanaa@outlook.com</email>
+            <email>waleed.shanaa@tabariyya.com</email>
         </developer>
     </developers>
 
     <scm>
-        <url>https://github.com/synCache-org/synCache-spring-boot-starter</url>
-        <connection>scm:git:git://github.com/synCache-org/synCache-spring-boot-starter.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:synCache-org/synCache-spring-boot-starter.git</developerConnection>
+        <url>https://github.com/tabariyya/synCache-spring-boot-starter</url>
+        <connection>scm:git:git://github.com/tabariyya/synCache-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:tabariyya/synCache-spring-boot-starter.git
+        </developerConnection>
     </scm>
 
 
@@ -54,13 +57,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.github.waleedsda</groupId>
-            <artifactId>synCache-java</artifactId>
-            <version>1.0.3</version>
+            <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
 
 
@@ -68,31 +65,33 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
+
+        <!-- Optional: validation (Boot 2.x uses javax) -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+            <scope>compile</scope>
         </dependency>
 
+        <!-- Your SynCache Java library -->
+        <dependency>
+            <groupId>com.tabariyya</groupId>
+            <artifactId>synCache</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+        <!-- Optional configuration processor for properties -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
 
+        <!-- Test dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -100,75 +99,16 @@
             <artifactId>h2</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
+
+
     <profiles>
-        <profile>
-            <id>test</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>test</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <configuration>
-                            <annotationProcessorPaths>
-                                <path>
-                                    <groupId>org.projectlombok</groupId>
-                                    <artifactId>lombok</artifactId>
-                                </path>
-                                <path>
-                                    <groupId>com.dslplatform</groupId>
-                                    <artifactId>dsl-json-processor</artifactId>
-                                    <version>1.10.0</version>
-                                </path>
-                            </annotationProcessorPaths>
-                        </configuration>
-                        <executions>
-                            <!-- Apply to test compilation as well -->
-                            <execution>
-                                <id>test-compile</id>
-                                <phase>test-compile</phase>
-                                <goals>
-                                    <goal>testCompile</goal>
-                                </goals>
-                                <configuration>
-                                    <annotationProcessorPaths>
-                                        <path>
-                                            <groupId>org.projectlombok</groupId>
-                                            <artifactId>lombok</artifactId>
-                                        </path>
-                                        <path>
-                                            <groupId>com.dslplatform</groupId>
-                                            <artifactId>dsl-json-processor</artifactId>
-                                            <version>1.10.0</version>
-
-                                        </path>
-                                    </annotationProcessorPaths>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-maven-plugin</artifactId>
-                        <configuration>
-                            <excludes>
-                                <exclude>
-                                    <groupId>org.projectlombok</groupId>
-                                    <artifactId>lombok</artifactId>
-                                </exclude>
-                            </excludes>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
         <profile>
             <id>release</id>
             <build>
@@ -239,5 +179,6 @@
             </build>
         </profile>
     </profiles>
+
 
 </project>

@@ -1,6 +1,6 @@
-package io.github.waleedsda.syncachespringbootstarter.spring.autoconfigure;
+package com.tabariyya.syncachespringbootstarter.spring.autoconfigure;
 
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.NotNull;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.validation.annotation.Validated;
 
@@ -16,7 +16,6 @@ public class SynCacheProperties {
 
     @NotNull
     private Integer maxNoOfEntries;
-
 
     public Integer getMaxNoOfEntries() {
         return maxNoOfEntries;

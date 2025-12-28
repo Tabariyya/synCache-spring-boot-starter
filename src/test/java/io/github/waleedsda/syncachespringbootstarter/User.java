@@ -1,13 +1,11 @@
 package io.github.waleedsda.syncachespringbootstarter;
 
-import com.dslplatform.json.CompiledJson;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 
 @Entity
 @Table(name = "users")
-@CompiledJson
 public class User implements Serializable {
 
     @Id
