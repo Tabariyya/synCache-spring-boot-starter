@@ -60,7 +60,7 @@ class RedisVsSynCacheApplicationTests {
 
     void deleteUsers(Set<Long> userIds) {
         for (Long userId : userIds) {
-            var deleted = userService.deleteUser(userId);
+            User deleted = userService.deleteUser(userId);
             assertThat(deleted).isNull();
         }
     }
@@ -68,7 +68,7 @@ class RedisVsSynCacheApplicationTests {
     @Test
     void testUserCrudWithCache() {
 
-        var userIds = createUsers(500);
+        Set<Long> userIds = createUsers(500);
         readUsersMultipleTimes(500, userIds);
         Instant start = Instant.now();
         readUsersMultipleTimes(500, userIds);
