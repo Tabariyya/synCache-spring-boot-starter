@@ -12,7 +12,7 @@
 
     <groupId>com.tabariyya</groupId>
     <artifactId>syncache-spring-boot-starter</artifactId>
-    <version>1.0.4</version>
+    <version>0.0.1</version>
     <name>syncache-spring-boot-starter</name>
     <description>Syncache Spring Boot Starter</description>
     <url>https://github.com/tabariyya/synCache-spring-boot-starter.git</url>
