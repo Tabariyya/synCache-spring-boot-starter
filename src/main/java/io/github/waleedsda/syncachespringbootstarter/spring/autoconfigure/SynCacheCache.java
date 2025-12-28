@@ -1,18 +1,19 @@
 package io.github.waleedsda.syncachespringbootstarter.spring.autoconfigure;
 
-import io.github.waleedsda.synCache.Controller;
-import org.springframework.cache.Cache;
+
+
+import com.tabariyya.synCache.Cache;
 
 import java.util.concurrent.Callable;
 
-public class SynCacheCache implements Cache {
+public class SynCacheCache implements org.springframework.cache.Cache {
 
     private final String name;
-    private final Controller controller;
+    private final Cache cache;
 
-    public SynCacheCache(String name, Controller controller) {
+    public SynCacheCache(String name, Cache cache) {
         this.name = name;
-        this.controller = controller;
+        this.cache = cache;
     }
 
 
@@ -22,8 +23,8 @@ public class SynCacheCache implements Cache {
     }
 
     @Override
-    public Controller getNativeCache() {
-        return controller;
+    public Cache getNativeCache() {
+        return cache;
     }
 
     @Override
@@ -36,7 +37,7 @@ public class SynCacheCache implements Cache {
 
     @Override
     public <T> T get(Object key, Class<T> type) {
-        return (((controller.get(name, key.toString(), type))));
+        return (((cache.get(name, key.toString(), type))));
     }
 
     @Override
@@ -50,14 +51,14 @@ public class SynCacheCache implements Cache {
 
     @Override
     public void put(Object key, Object value) {
-        controller.set(name, key.toString(), value);
+        cache.set(name, key.toString(), value);
 
     }
 
 
     @Override
     public void evict(Object key) {
-        controller.evict(name, key.toString());
+        cache.evict(name, key.toString());
     }
 
 

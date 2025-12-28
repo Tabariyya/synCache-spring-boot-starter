@@ -76,9 +76,9 @@
 
         <!-- Your SynCache Java library -->
         <dependency>
-            <groupId>io.github.waleedsda</groupId>
-            <artifactId>synCache-java</artifactId>
-            <version>1.0.4</version>
+            <groupId>com.tabariyya</groupId>
+            <artifactId>synCache</artifactId>
+            <version>0.0.1</version>
         </dependency>
 
         <!-- Optional configuration processor for properties -->
@@ -109,57 +109,6 @@
 
 
     <profiles>
-        <profile>
-            <id>test</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>test</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <configuration>
-                            <annotationProcessorPaths>
-                                <path>
-                                    <groupId>org.projectlombok</groupId>
-                                    <artifactId>lombok</artifactId>
-                                </path>
-                                <path>
-                                    <groupId>com.dslplatform</groupId>
-                                    <artifactId>dsl-json-processor</artifactId>
-                                    <version>1.10.0</version>
-                                </path>
-                            </annotationProcessorPaths>
-                        </configuration>
-                        <executions>
-                            <!-- Apply to test compilation as well -->
-                            <execution>
-                                <id>test-compile</id>
-                                <phase>test-compile</phase>
-                                <goals>
-                                    <goal>testCompile</goal>
-                                </goals>
-                                <configuration>
-                                    <annotationProcessorPaths>
-                                        <path>
-                                            <groupId>com.dslplatform</groupId>
-                                            <artifactId>dsl-json-processor</artifactId>
-                                            <version>1.10.0</version>
-
-                                        </path>
-                                    </annotationProcessorPaths>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
         <profile>
             <id>release</id>
             <build>

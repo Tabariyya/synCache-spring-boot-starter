@@ -42,8 +42,6 @@ class RedisVsSynCacheApplicationTests {
                 userService.getUserById(userId);
             }
         }
-
-
     }
 
     void updateUsers(Set<Long> userIds) {

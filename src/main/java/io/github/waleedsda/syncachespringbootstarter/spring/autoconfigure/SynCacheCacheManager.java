@@ -1,8 +1,7 @@
 package io.github.waleedsda.syncachespringbootstarter.spring.autoconfigure;
 
-import io.github.waleedsda.synCache.Controller;
+import com.tabariyya.synCache.Cache;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 
 import java.util.Collection;
@@ -15,16 +14,16 @@ import java.util.concurrent.ConcurrentHashMap;
 @ConditionalOnProperty(prefix = "spring.cache", name = "type", havingValue = "syncache")
 public class SynCacheCacheManager implements CacheManager {
 
-    private final Controller controller;
-    private final ConcurrentHashMap<String, Cache> caches = new ConcurrentHashMap<>();
+    private final Cache cache;
+    private final ConcurrentHashMap<String, org.springframework.cache.Cache> caches = new ConcurrentHashMap<>();
 
-    public SynCacheCacheManager(Controller controller) {
-        this.controller = controller;
+    public SynCacheCacheManager(Cache controller) {
+        this.cache = controller;
     }
 
     @Override
-    public Cache getCache(String name) {
-        return caches.computeIfAbsent(name, n -> new SynCacheCache(n, controller));
+    public org.springframework.cache.Cache getCache(String name) {
+        return caches.computeIfAbsent(name, n -> new SynCacheCache(n, cache));
     }
 
     @Override
