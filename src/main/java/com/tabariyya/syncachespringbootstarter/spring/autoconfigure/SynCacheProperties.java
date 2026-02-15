@@ -9,9 +9,6 @@ import org.springframework.validation.annotation.Validated;
 public class SynCacheProperties {
 
     @NotNull
-    private String brokerUrl;
-
-    @NotNull
     private String brokerAuthToken;
 
     @NotNull
@@ -23,14 +20,6 @@ public class SynCacheProperties {
 
     public void setMaxNoOfEntries(Integer maxNoOfEntries) {
         this.maxNoOfEntries = maxNoOfEntries;
-    }
-
-    public String getBrokerUrl() {
-        return brokerUrl;
-    }
-
-    public void setBrokerUrl(String brokerUrl) {
-        this.brokerUrl = brokerUrl;
     }
 
     public String getBrokerAuthToken() {

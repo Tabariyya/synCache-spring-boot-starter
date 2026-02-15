@@ -25,7 +25,7 @@ public class SynCacheAutoConfiguration implements CachingConfigurer {
     @Bean
     @ConditionalOnMissingBean
     public CacheManager cacheManager() {
-        Cache cache = new Cache(props.getBrokerUrl(), props.getBrokerAuthToken(), props.getMaxNoOfEntries());
+        Cache cache = new Cache(props.getBrokerAuthToken(), props.getMaxNoOfEntries());
         return new SynCacheCacheManager(cache);
     }
 

@@ -17,7 +17,6 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
   data:
     syncache:
-      brokerUrl: "wss://broker.syncache.tabariyya.com/"
       brokerAuthToken: ${BROKER_TOKEN}
       maxNoOfEntries: 500
 

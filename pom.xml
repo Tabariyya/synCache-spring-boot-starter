@@ -12,9 +12,9 @@
 
     <groupId>com.tabariyya</groupId>
     <artifactId>syncache-spring-boot-starter</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.4</version>
     <name>syncache-spring-boot-starter</name>
-    <description>Syncache Spring Boot Starter</description>
+    <description>SynCache Spring Boot Starter</description>
     <url>https://github.com/tabariyya/synCache-spring-boot-starter.git</url>
 
     <properties>
@@ -24,7 +24,6 @@
         <maven.compiler.release>8</maven.compiler.release>
         <java.version>8</java.version>
     </properties>
-
 
     <licenses>
         <license>
@@ -78,7 +77,7 @@
         <dependency>
             <groupId>com.tabariyya</groupId>
             <artifactId>synCache</artifactId>
-            <version>0.0.1</version>
+            <version>1.0.4</version>
         </dependency>
 
         <!-- Optional configuration processor for properties -->
