@@ -25,7 +25,7 @@ public class UserService {
     // Get user by ID (cacheable)
     @Cacheable(value = "users", key = "#id")
     public User getUserById(Long id) {
-        System.out.println("Fetching from DB, not cache!");
+//        System.out.println("Fetching from DB, not cache!");
         return userRepository.findById(id).orElse(null);
     }
 
