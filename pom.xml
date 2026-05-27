@@ -80,7 +80,7 @@
         <dependency>
             <groupId>com.tabariyya</groupId>
             <artifactId>syncache</artifactId>
-            <version>1.0.5</version>
+            <version>1.0.5.1</version>
         </dependency>
 
         <!-- Optional configuration processor for properties -->
